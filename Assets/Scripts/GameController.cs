@@ -35,7 +35,7 @@ public class scr : MonoBehaviour
             hold += Time.deltaTime * 20;
             Debug.Log("Right");
 
-            platform.transform.rotation = Quaternion.Euler(pRotationX + hold, 0, pRotationZ);
+            platform.transform.rotation = Quaternion.Euler(pRotationX, 0, pRotationZ - hold);
         }
         else
         {
