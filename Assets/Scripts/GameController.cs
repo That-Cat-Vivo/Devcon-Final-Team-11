@@ -5,41 +5,69 @@ using UnityEngine;
 
 public class scr : MonoBehaviour
 {
-    public Collider platform;
-    float pRotationX;
-    float pRotationZ;
-    float hold = 0;
+    public GameObject gravCentre;
+    int hold = 0;
+    float gravX = 0;
+    float gravZ = 0;
+    float timer = 0;
+    private Quaternion baseRotation;
+    private Quaternion currentRotation;
     // Start is called before the first frame update
     void Start()
     {
-        pRotationX = platform.transform.rotation.x;
-        pRotationZ = platform.transform.rotation.z;
+        baseRotation = gravCentre.transform.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        pRotationX = platform.transform.rotation.x;
-        pRotationZ = platform.transform.rotation.z;
+        currentRotation = gravCentre.transform.rotation;
 
         //Player 1 Controls
-        if (Input.GetKey(KeyCode.A) && pRotationZ <= 20)
-        {
-            hold += Time.deltaTime * 20;
-            Debug.Log("Left");
+        gravCentre.transform.Rotate(gravZ, 0, gravX, Space.World);
 
-            platform.transform.rotation = Quaternion.Euler(pRotationX, 0, pRotationZ + hold);
-        }
-        else if (Input.GetKey(KeyCode.D) && pRotationZ >= -20)
+        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.J))
         {
-            hold += Time.deltaTime * 20;
-            Debug.Log("Right");
+            timer = Time.deltaTime * 500;
+            hold = (int)timer;
+        }
+        else if (hold >= 0)
+        {
+            hold--;
+            timer = 0;
+            gravX = 0;
+            gravZ = 0;
+        }
+        
 
-            platform.transform.rotation = Quaternion.Euler(pRotationX + hold, 0, pRotationZ);
-        }
-        else
+        if (Input.GetKey(KeyCode.I))
         {
-            hold = 0;
+            gravZ = hold;
+
+        }
+        if (Input.GetKey(KeyCode.K))
+        {
+            gravZ = -hold;
+
+        }
+        if (Input.GetKey(KeyCode.J))
+        {
+            gravX = -hold;
+        }
+        if (Input.GetKey(KeyCode.L))
+        {
+            gravX = hold;
+        }
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        Physics.gravity = new Vector3(gravX, -1.0f, gravZ);
+        if (currentRotation != baseRotation && !Input.anyKey)
+        {
+            gravCentre.transform.rotation = Quaternion.Lerp(baseRotation, currentRotation, 0.9f);
         }
     }
 }
