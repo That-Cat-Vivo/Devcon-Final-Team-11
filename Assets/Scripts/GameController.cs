@@ -47,7 +47,7 @@ public class scr : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.J))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             timer = Time.deltaTime * 1000;
             hold = (int)timer;
@@ -61,22 +61,22 @@ public class scr : MonoBehaviour
         }
         
 
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.W))
         {
             gravZ = hold;
             gravCentre.transform.rotation = Quaternion.Lerp(rotU, currentRotation, 0.9f);
         }
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKey(KeyCode.S))
         {
             gravZ = -hold;
             gravCentre.transform.rotation = Quaternion.Lerp(rotD, currentRotation, 0.9f);
         }
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKey(KeyCode.A))
         {
             gravX = -hold;
             gravCentre.transform.rotation = Quaternion.Lerp(rotL, currentRotation, 0.9f);
         }
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.D))
         {
             gravX = hold;
             gravCentre.transform.rotation = Quaternion.Lerp(rotR, currentRotation, 0.9f);
