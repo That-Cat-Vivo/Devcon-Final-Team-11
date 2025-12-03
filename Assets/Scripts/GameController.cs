@@ -49,7 +49,7 @@ public class scr : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
-            timer = Time.deltaTime * 1000;
+            timer = Time.deltaTime * 2000;
             hold = (int)timer;
         }
         else if (hold >= 0)
