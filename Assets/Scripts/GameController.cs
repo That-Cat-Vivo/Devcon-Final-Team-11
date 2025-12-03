@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scr : MonoBehaviour
 {
@@ -35,7 +36,15 @@ public class scr : MonoBehaviour
         currentRotation = gravCentre.transform.rotation;
 
         //Player 1 Controls
-        
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
 
         if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.J))
