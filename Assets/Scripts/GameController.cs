@@ -81,16 +81,17 @@ public class scr : MonoBehaviour
             gravX = hold;
             gravCentre.transform.rotation = Quaternion.Lerp(rotR, currentRotation, 0.9f);
         }
-
+        
         
     }
 
     private void FixedUpdate()
     {
-        Physics.gravity = new Vector3(gravX, -1.0f, gravZ);
+        Physics.gravity = new Vector3(gravX, -9.0f, gravZ);
         if (currentRotation != baseRotation && !Input.anyKey)
         {
             gravCentre.transform.rotation = Quaternion.Lerp(baseRotation, currentRotation, 0.9f);
         }
     }
 }
+
