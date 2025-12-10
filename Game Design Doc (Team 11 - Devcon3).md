@@ -35,6 +35,10 @@ This resulted in a smooth camera change.
 
 The tilt of gravity is affected by changing the X and Z axis forces respectively. The longer the player holds down the movement button, stronger gravity increases in that direction. The ball never passes terminal velocity due to the confined nature of the maze.
 
+# Maze Design
+
+In order to ensure smooth physics interaction with the maze, it was modled in 3DSMax. This allows for a specially made design, with holes, that does not require a large amount of unique colliders. This maze instead uses one mesh collider, which leads to much fewer issues with both running the game and calculating physics. The maze is designed to have several pitfalls, that act as a lose condition for the player. This is something that is much less problematic in a digital format than it would be in real-life analogs. The several turns in the maze help naturally demonstrate the phyics of the ball and it's maneuverability when the player tilts the maze. There are also two paths of the maze that utilize drop hazards, one being several holes, the other utilizing the players momentum against them. This forces the player to master their understanding of the games physics in one of two ways, if they want to proceed.
+
 # Citations
 
 3D Fruit:
