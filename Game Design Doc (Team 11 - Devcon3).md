@@ -23,7 +23,8 @@ The average size of an apple is 2-4" in Diameter. (Apprx 5-10 cm.) The apple in 
 To indicate the size of the apple to the player, we needed something that could be compared. Thus the edges of the maze were decorated with bananas, their lengths twice that of the apple. (Bananas are apprx 7-8"/17-20cm in length. Our bananas take the median.)
 We gave the apple a mass of 3, which gave it the inertia expected of such an object. While this was not exactly measured, we rolled an apple around to get the feel of said inertia and replicated that.
 The base gravity of the scene is set to (0, -9.0f, 0). This allowed for the friction of the Maze to properly affect the apples rolling, and ensured a realistic reaction to the tilting of the maze.
-The maze was meant to be made out of marble, like that of a kitchen countertop. Kitchen counters widely vary in their friction, thus an exact friction was not necessary. We utilized a dynamic friction of 3, which allowed for the apple to not become impossible to control, while still rolling like a proper object. 
+The maze was meant to be made out of marble, like that of a kitchen countertop. Kitchen counters widely vary in their friction, thus an exact friction was not necessary. We utilized a dynamic friction of 3, which allowed for the apple to not become impossible to control, while still rolling like a proper object.
+We chose a radial gradient background in order to give the game a clean, minimalistic feel. The blue gradient gives the impression of depth to the environment, like the maze is hanging over a massive, abstract void, while at the same time not clashing with the rest of the game's visuals.
 
 # Tilting (Ethan Muller)
 
