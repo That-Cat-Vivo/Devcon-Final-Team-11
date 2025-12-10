@@ -10,7 +10,7 @@ D: Tilts right edge up
 
 # Objective Statement
 
-How do physics metrics be leveraged to create a simple physics based maze game?
+Our Objective is to achieve an experience similar to contemporary "ball mazes" while now having obstacles, realistic physics, and an actual lose Condition, creating an experience with realistic physics that can only be done digitally.
 
 # Design Rationale
 
@@ -26,13 +26,23 @@ The base gravity of the scene is set to (0, -9.0f, 0). This allowed for the fric
 The maze was meant to be made out of marble, like that of a kitchen countertop. Kitchen counters widely vary in their friction, thus an exact friction was not necessary. We utilized a dynamic friction of 3, which allowed for the apple to not become impossible to control, while still rolling like a proper object.
 We chose a radial gradient background in order to give the game a clean, minimalistic feel. The blue gradient gives the impression of depth to the environment, like the maze is hanging over a massive, abstract void, while at the same time not clashing with the rest of the game's visuals.
 
-# Tilting (Ethan Muller)
+# Tilting
 
 The common physics of a ball maze game involves the tilting of the maze so that gravity pulls the ball in a specific direction. Attempting to directly recreate this form of control in Unity had several issues.
 Due to both the ball and maze moving separatly from each other, the ball would often phase through and escape the play area.
-To counteract this issue, I instead allowed the player to tilt the scenes gravity, in conjunction with the camera, to create the illusion of the maze actually tilting. After all, the forces of gravity are relative.
-To ensure the camera would have a smooth transition to the different tilt states, I had five recorded quaternions for the baseRotation, then tilting up, down, left, and right. I then had a Quaternion.Lerp between the current rotation and target rotation. The current rotation would then be continually updated to the resulting rotation, until it was practiacally the same as the target Lerp.
+To counteract this issue, we instead allowed the player to tilt the scenes gravity, in conjunction with the camera, to create the illusion of the maze actually tilting. After all, the forces of gravity are relative.
+To ensure the camera would have a smooth transition to the different tilt states, we had five recorded quaternions for the baseRotation, then tilting up, down, left, and right. we then had a Quaternion.Lerp between the current rotation and target rotation. The current rotation would then be continually updated to the resulting rotation, until it was practiacally the same as the target Lerp.
 This resulted in a smooth camera change.
+
+The tilt of gravity is affected by changing the X and Z axis forces respectively. The longer the player holds down the movement button, stronger gravity increases in that direction. The ball never passes terminal velocity due to the confined nature of the maze.
+
+# Maze Design
+
+In order to ensure smooth physics interaction with the maze, it was modled in 3DSMax. This allows for a specially made design, with holes, that does not require a large amount of unique colliders. This maze instead uses one mesh collider, which leads to much fewer issues with both running the game and calculating physics. The maze is designed to have several pitfalls, that act as a lose condition for the player. This is something that is much less problematic in a digital format than it would be in real-life analogs. The several turns in the maze help naturally demonstrate the phyics of the ball and it's maneuverability when the player tilts the maze. There are also two paths of the maze that utilize drop hazards, one being several holes, the other utilizing the players momentum against them. This forces the player to master their understanding of the games physics in one of two ways, if they want to proceed.
+
+# Material and Model Choice
+
+
 
 # Citations
 
