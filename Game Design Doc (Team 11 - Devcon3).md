@@ -10,7 +10,7 @@ D: Tilts right edge up
 
 # Objective Statement
 
-How do physics metrics be leveraged to create a simple physics based maze game?
+Our Objective is to achieve an experience similar to contemporary "ball mazes" while now having obstacles, realistic physics, and an actual lose Condition, creating an experience with realistic physics that can only be done digitally.
 
 # Design Rationale
 
@@ -32,6 +32,8 @@ Due to both the ball and maze moving separatly from each other, the ball would o
 To counteract this issue, I instead allowed the player to tilt the scenes gravity, in conjunction with the camera, to create the illusion of the maze actually tilting. After all, the forces of gravity are relative.
 To ensure the camera would have a smooth transition to the different tilt states, I had five recorded quaternions for the baseRotation, then tilting up, down, left, and right. I then had a Quaternion.Lerp between the current rotation and target rotation. The current rotation would then be continually updated to the resulting rotation, until it was practiacally the same as the target Lerp.
 This resulted in a smooth camera change.
+
+The tilt of gravity is affected by changing the X and Z axis forces respectively. The longer the player holds down the movement button, stronger gravity increases in that direction. The ball never passes terminal velocity due to the confined nature of the maze.
 
 # Citations
 
