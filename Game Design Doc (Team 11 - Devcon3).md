@@ -25,12 +25,12 @@ We gave the apple a mass of 3, which gave it the inertia expected of such an obj
 The base gravity of the scene is set to (0, -9.0f, 0). This allowed for the friction of the Maze to properly affect the apples rolling, and ensured a realistic reaction to the tilting of the maze.
 The maze was meant to be made out of marble, like that of a kitchen countertop. Kitchen counters widely vary in their friction, thus an exact friction was not necessary. We utilized a dynamic friction of 3, which allowed for the apple to not become impossible to control, while still rolling like a proper object. 
 
-# Tilting (Ethan Muller)
+# Tilting
 
 The common physics of a ball maze game involves the tilting of the maze so that gravity pulls the ball in a specific direction. Attempting to directly recreate this form of control in Unity had several issues.
 Due to both the ball and maze moving separatly from each other, the ball would often phase through and escape the play area.
-To counteract this issue, I instead allowed the player to tilt the scenes gravity, in conjunction with the camera, to create the illusion of the maze actually tilting. After all, the forces of gravity are relative.
-To ensure the camera would have a smooth transition to the different tilt states, I had five recorded quaternions for the baseRotation, then tilting up, down, left, and right. I then had a Quaternion.Lerp between the current rotation and target rotation. The current rotation would then be continually updated to the resulting rotation, until it was practiacally the same as the target Lerp.
+To counteract this issue, we instead allowed the player to tilt the scenes gravity, in conjunction with the camera, to create the illusion of the maze actually tilting. After all, the forces of gravity are relative.
+To ensure the camera would have a smooth transition to the different tilt states, we had five recorded quaternions for the baseRotation, then tilting up, down, left, and right. we then had a Quaternion.Lerp between the current rotation and target rotation. The current rotation would then be continually updated to the resulting rotation, until it was practiacally the same as the target Lerp.
 This resulted in a smooth camera change.
 
 The tilt of gravity is affected by changing the X and Z axis forces respectively. The longer the player holds down the movement button, stronger gravity increases in that direction. The ball never passes terminal velocity due to the confined nature of the maze.
